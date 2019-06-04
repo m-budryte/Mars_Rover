@@ -1,8 +1,8 @@
 class Input_parser
-  attr_reader :instructions
+  attr_reader :output
   def initialize(input)
     @input = input
-    @instructions = []
+    @output = []
   end
 
   def plateu_coordinates
@@ -12,7 +12,7 @@ class Input_parser
   def save_instructions
     i = 1
     while i <= no_of_lines
-      @instructions << {
+      @output << {
         x: line_splitter[i].split(' ')[0].to_i,
         y: line_splitter[i].split(' ')[1].to_i,
         direction: line_splitter[i].split(' ')[2],
