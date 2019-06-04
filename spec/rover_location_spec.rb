@@ -81,4 +81,39 @@ describe Rover_location do
       expect(location.y).to eq(0)
     end
   end
+
+  describe 'acceptance criteria' do
+    it 'test 1' do
+      location = Rover_location.new('N', 1, 2)
+      location.left
+      location.move_forward
+      location.left
+      location.move_forward
+      location.left
+      location.move_forward
+      location.left
+      location.move_forward
+      location.move_forward
+      expect(location.x).to eq(1)
+      expect(location.y).to eq(3)
+      expect(location.direction).to eq('N')
+    end
+
+    it 'test 2' do
+      location = Rover_location.new('E', 3, 3)
+      location.move_forward
+      location.move_forward
+      location.right
+      location.move_forward
+      location.move_forward
+      location.right
+      location.move_forward
+      location.right
+      location.right
+      location.move_forward
+      expect(location.x).to eq(5)
+      expect(location.y).to eq(1)
+      expect(location.direction).to eq('E')
+    end
+  end
 end
