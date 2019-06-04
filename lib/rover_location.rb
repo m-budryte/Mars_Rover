@@ -5,6 +5,15 @@ class Rover_location
     "S" => "W",
     "W" => "N"
   }
+
+  LEFT = {
+    "N" => "W",
+    "W" => "S",
+    "S" => "E",
+    "E" => "N"
+  }
+
+
   def initialize(direction, x, y)
     @direction = direction
     @x = x
@@ -13,5 +22,9 @@ class Rover_location
 
   def right
     RIGHT[@direction]
+  end
+
+  def left
+    LEFT[@direction]
   end
 end
