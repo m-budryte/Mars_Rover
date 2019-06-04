@@ -1,5 +1,4 @@
 require 'rover_location'
-
 describe Rover_location do
   describe 'Turning right' do
     it 'north -> east' do

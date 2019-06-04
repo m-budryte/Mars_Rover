@@ -1,12 +1,10 @@
+require_relative 'rover_location'
 class Rover
-  attr_reader :route
+  attr_reader :x, :y, :direction, :route
   def initialize(hash)
-    @hash = hash
-    @route = hash[:route].split("")
+    @x = hash[:x]
+    @y = hash[:y]
+    @direction = hash[:direction]
+    @route = hash[:route]
   end
-
-  def report_location(location = Rover_location.new(@hash[:direction], @hash[:x], @hash[:y]))
-    "#{location.x} #{location.y} #{location.direction}"
-  end
-  
 end
