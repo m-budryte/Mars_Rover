@@ -1,4 +1,5 @@
 class Rover_location
+  attr_reader :direction
   RIGHT = {
     "N" => "E",
     "E" => "S",
@@ -21,10 +22,10 @@ class Rover_location
   end
 
   def right
-    RIGHT[@direction]
+    @direction = RIGHT[@direction]
   end
 
   def left
-    LEFT[@direction]
+    @direction = LEFT[@direction]
   end
 end
