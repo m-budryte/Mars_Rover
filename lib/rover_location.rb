@@ -6,14 +6,14 @@ class Rover_location
     'E' => 'S',
     'S' => 'W',
     'W' => 'N'
-  }.freeze
+  }
 
   LEFT = {
     'N' => 'W',
     'W' => 'S',
     'S' => 'E',
     'E' => 'N'
-  }.freeze
+  }
 
   def initialize(direction, x, y)
     @direction = direction
