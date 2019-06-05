@@ -13,25 +13,33 @@ class Rover
   end
 
   def travel
-    travelling_position = create_location_object
-    @route.each do |command|
-      case command
-      when 'R'
-        travelling_position.right
-      when 'L'
-        travelling_position.left
-      when 'M'
-        travelling_position.move_forward
-      end
-    end
-    @x = travelling_position.x
-    @y = travelling_position.y
-    @direction = travelling_position.direction
+    current_location = create_location_object
+    command_parser(current_location)
+    save_location(current_location.direction,current_location.x,current_location.y)
   end
 
   private
 
   def create_location_object
     Rover_location.new(@direction, @x, @y)
+  end
+
+  def command_parser(initial_location)
+    @route.each do |command|
+      case command
+      when 'R'
+        initial_location.right
+      when 'L'
+        initial_location.left
+      when 'M'
+        initial_location.move_forward
+      end
+    end
+  end
+
+  def save_location(direction,x,y)
+    @direction = direction
+    @x = x
+    @y = y
   end
 end
