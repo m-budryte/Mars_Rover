@@ -51,6 +51,32 @@ describe Control_unit do
     end
   end
 
+  describe 'handling input errors' do
+    it 'does not accept anything but string (integer check)' do
+      expect{ subject.load_instructions(1000000) }.to raise_error('Wrong format. Only strings are accepted. Try again.')
+    end
+
+    it 'does not accept anything but string (array check)' do
+      expect{ subject.load_instructions([5, 5,'N', 0, 0]) }.to raise_error('Wrong format. Only strings are accepted. Try again.')
+    end
+
+    it 'does not accept anything but string (hash check)' do
+      expect{
+        subject.load_instructions({
+          "up" => [5, 5],
+          "location" => ['N', 0, 0]
+      })
+      }.to raise_error('Wrong format. Only strings are accepted. Try again.')
+    end
+
+    it 'handles if the input is too short (2 lines)' do
+      expect{ subject.load_instructions("5 5\n1 2") }.to raise_error('Your input is too short. Use \n to separate lines' )
+    end
+
+    it 'handles if the input is too short (4 lines)' do
+      expect{ subject.load_instructions("5 5\n1 2\nLMLMLMLMM\n3 3") }.to raise_error('Your input is too short. Use \n to separate lines' )
+    end
+  end
   describe '#launch_squad' do
     subject(:control_unit) { described_class.new }
     it 'launches rovers one by one. Rovers return their final location' do
