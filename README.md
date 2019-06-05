@@ -7,6 +7,19 @@ This code is submitted as a part of the ThoughtWorks Tech Test.
 ## Build status
 [![Build Status](https://travis-ci.com/m-budryte/Mars_Rover.svg?branch=master)](https://travis-ci.com/m-budryte/Mars_Rover)
 
+## User Stories
+```
+As a NASA engineer
+So I can navigate the rover on mars and get pictures back from it
+I want to be able to send the info on plateau upper-right coordinates, current rover position and instructions.
+```
+
+```
+As a NASA engineer
+So I know where my rover ended up
+I want to be able to receive the info on the final rover location
+```
+[Original task](TASK.md)
 ## Tech/framework used
 **Built with**
 - Ruby 2.6.0
