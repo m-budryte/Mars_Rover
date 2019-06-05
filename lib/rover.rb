@@ -15,7 +15,7 @@ class Rover
   def travel
     current_location = create_location_object
     command_parser(current_location)
-    save_location(current_location.direction,current_location.x,current_location.y)
+    save_location(current_location.direction, current_location.x, current_location.y)
   end
 
   private
@@ -37,7 +37,7 @@ class Rover
     end
   end
 
-  def save_location(direction,x,y)
+  def save_location(direction, x, y)
     @direction = direction
     @x = x
     @y = y

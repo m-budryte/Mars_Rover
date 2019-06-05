@@ -10,8 +10,8 @@ class Control_unit
 
   def load_instructions(instructions_string)
     raise 'Wrong format. Only strings are accepted. Try again.' unless instructions_string.is_a? String
-    raise 'Your input is too short. Use \n to separate lines' unless instructions_string.count("\n") % 2 != 1
-     
+    raise 'Your input is too short. Use \n to separate lines' unless instructions_string.count("\n").even?
+
     @instructions_string = instructions_string
   end
 

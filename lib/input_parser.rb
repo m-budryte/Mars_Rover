@@ -28,7 +28,7 @@ class Input_parser
   end
 
   def read_lines(i)
-    return {
+    {
       x: line_splitter[i].split(' ')[0].to_i,
       y: line_splitter[i].split(' ')[1].to_i,
       direction: line_splitter[i].split(' ')[2],

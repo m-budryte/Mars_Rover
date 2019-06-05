@@ -8,8 +8,11 @@ This code is submitted as a part of the ThoughtWorks Tech Test.
 [![Build Status](https://travis-ci.com/m-budryte/Mars_Rover.svg?branch=master)](https://travis-ci.com/m-budryte/Mars_Rover)
 
 ## Tech/framework used
-<b>Built with</b>
+**Built with**
 - Ruby 2.6.0
+
+**Linter**
+- Rubocop 0.67.2
 
 ## Features
 Current version allows to provide instructions to the rover squad, launch them and receive the string with rovers' final locations.
