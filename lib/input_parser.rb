@@ -12,12 +12,7 @@ class Input_parser
   def process_instructions
     i = 1
     while i <= no_of_lines
-      @output_array << {
-        x: line_splitter[i].split(' ')[0].to_i,
-        y: line_splitter[i].split(' ')[1].to_i,
-        direction: line_splitter[i].split(' ')[2],
-        route: line_splitter[i + 1]
-      }
+      @output_array << read_lines(i)
       i += 2
     end
   end
@@ -30,5 +25,14 @@ class Input_parser
 
   def no_of_lines
     @input_string.count("\n")
+  end
+
+  def read_lines(i)
+    return {
+      x: line_splitter[i].split(' ')[0].to_i,
+      y: line_splitter[i].split(' ')[1].to_i,
+      direction: line_splitter[i].split(' ')[2],
+      route: line_splitter[i + 1]
+    }
   end
 end
