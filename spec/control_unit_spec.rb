@@ -19,7 +19,7 @@ describe Control_unit do
     end
 
     it 'save instructions as a string' do
-      input_parser = double('Input_parser', save_instructions: nil, output_array: [
+      input_parser = double('Input_parser', process_instructions: nil, output_array: [
                               {
                                 direction: 'N',
                                 x: 1,
@@ -54,7 +54,7 @@ describe Control_unit do
   describe '#launch_squad' do
     subject(:control_unit) { described_class.new }
     it 'launches rovers one by one. Rovers return their final location' do
-      input_parser = double('Input_parser', save_instructions: nil, output_array: [
+      input_parser = double('Input_parser', process_instructions: nil, output_array: [
                               {
                                 direction: 'N',
                                 x: 1,

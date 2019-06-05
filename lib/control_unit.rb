@@ -13,16 +13,27 @@ class Control_unit
   end
 
   def parse_instructions(parser = Input_parser.new(@instructions_string))
-    parser.save_instructions
+    parser.process_instructions
     @parsed_array = parser.output_array
   end
 
   def launch_squad
     @parsed_array.each do |instruction|
-      rover = Rover.new(instruction)
-      rover.travel
-      @output_string == '' ? @output_string += rover.report_location : @output_string += "\n#{rover.report_location}"
+      rover_final_location = launch_rover(instruction)
+      append_output_string(rover_final_location)
     end
     @output_string
+  end
+
+  private
+
+  def launch_rover(instruction)
+    rover = Rover.new(instruction)
+    rover.travel
+    rover.report_location
+  end
+
+  def append_output_string(rover_final_location)
+    @output_string == '' ? @output_string += rover_final_location : @output_string += "\n#{rover_final_location}"
   end
 end
