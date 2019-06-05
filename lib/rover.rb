@@ -5,7 +5,7 @@ class Rover
     @x = hash[:x]
     @y = hash[:y]
     @direction = hash[:direction]
-    @route = hash[:route].split("")
+    @route = hash[:route].split('')
   end
 
   def report_location
@@ -16,11 +16,11 @@ class Rover
     travelling_position = create_location_object
     @route.each do |command|
       case command
-      when "R"
+      when 'R'
         travelling_position.right
-      when "L"
+      when 'L'
         travelling_position.left
-      when "M"
+      when 'M'
         travelling_position.move_forward
       end
     end

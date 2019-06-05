@@ -3,9 +3,9 @@ require_relative 'rover'
 class Control_unit
   attr_reader :instructions_string, :parsed_array
   def initialize
-    @instructions_string = ""
+    @instructions_string = ''
     @parsed_array = []
-    @output_string = ""
+    @output_string = ''
   end
 
   def load_instructions(instructions_string)
@@ -21,7 +21,7 @@ class Control_unit
     @parsed_array.each do |instruction|
       rover = Rover.new(instruction)
       rover.travel
-      @output_string == "" ? @output_string += rover.report_location : @output_string += "\n#{rover.report_location}"
+      @output_string == '' ? @output_string += rover.report_location : @output_string += "\n#{rover.report_location}"
     end
     @output_string
   end

@@ -19,55 +19,55 @@ describe Control_unit do
     end
 
     it 'save instructions as a string' do
-      input_parser = double("Input_parser", :save_instructions => nil, :output_array => [
-        {
-        :direction => 'N',
-        :x => 1,
-        :y => 2,
-        :route => 'LMLMLMLMM'
-      },
-      {
-        :direction => 'E',
-        :x => 3,
-        :y => 3,
-        :route => 'MMRMMRMRRM'
-      }
-      ])
+      input_parser = double('Input_parser', save_instructions: nil, output_array: [
+                              {
+                                direction: 'N',
+                                x: 1,
+                                y: 2,
+                                route: 'LMLMLMLMM'
+                              },
+                              {
+                                direction: 'E',
+                                x: 3,
+                                y: 3,
+                                route: 'MMRMMRMRRM'
+                              }
+                            ])
       control_unit.load_instructions("5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM")
       expect(control_unit.parse_instructions(input_parser)).to eq([
-        {
-        :direction => 'N',
-        :x => 1,
-        :y => 2,
-        :route => 'LMLMLMLMM'
-      },
-      {
-        :direction => 'E',
-        :x => 3,
-        :y => 3,
-        :route => 'MMRMMRMRRM'
-      }
-      ])
+                                                                    {
+                                                                      direction: 'N',
+                                                                      x: 1,
+                                                                      y: 2,
+                                                                      route: 'LMLMLMLMM'
+                                                                    },
+                                                                    {
+                                                                      direction: 'E',
+                                                                      x: 3,
+                                                                      y: 3,
+                                                                      route: 'MMRMMRMRRM'
+                                                                    }
+                                                                  ])
     end
   end
 
   describe '#launch_squad' do
     subject(:control_unit) { described_class.new }
     it 'launches rovers one by one. Rovers return their final location' do
-      input_parser = double("Input_parser", :save_instructions => nil, :output_array => [
-        {
-        :direction => 'N',
-        :x => 1,
-        :y => 2,
-        :route => 'LMLMLMLMM'
-      },
-      {
-        :direction => 'E',
-        :x => 3,
-        :y => 3,
-        :route => 'MMRMMRMRRM'
-      }
-      ])
+      input_parser = double('Input_parser', save_instructions: nil, output_array: [
+                              {
+                                direction: 'N',
+                                x: 1,
+                                y: 2,
+                                route: 'LMLMLMLMM'
+                              },
+                              {
+                                direction: 'E',
+                                x: 3,
+                                y: 3,
+                                route: 'MMRMMRMRRM'
+                              }
+                            ])
       control_unit.load_instructions("5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM")
       control_unit.parse_instructions(input_parser)
       expect(control_unit.launch_squad).to eq("1 3 N\n5 1 E")
