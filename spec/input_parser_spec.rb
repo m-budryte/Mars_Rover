@@ -8,11 +8,11 @@ describe Input_parser do
     end
   end
 
-  describe '#save_instructions' do
+  describe '#process_instructions' do
     subject(:input_parser) { described_class.new("5 5\n1 2 N\nLMLMLMLMM") }
     it 'instructions saved for one rover' do
-      input_parser.save_instructions
-      expect(input_parser.output).to eq([
+      input_parser.process_instructions
+      expect(input_parser.output_array).to eq([
                                                 {
                                                   x: 1,
                                                   y: 2,
@@ -26,8 +26,8 @@ describe Input_parser do
   describe 'acceptance criteria' do
     subject(:input_parser){ described_class.new("5 5\n1 2 N\nLMLMLMLMM\n3 3 E\nMMRMMRMRRM") }
     it 'returns a hash with instructions' do
-      input_parser.save_instructions
-      expect(input_parser.output).to eq([
+      input_parser.process_instructions
+      expect(input_parser.output_array).to eq([
         {
         :direction => 'N',
         :x => 1,

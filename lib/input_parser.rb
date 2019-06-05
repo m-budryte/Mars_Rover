@@ -1,18 +1,18 @@
 class Input_parser
-  attr_reader :output
+  attr_reader :output_array
   def initialize(input)
-    @input = input
-    @output = []
+    @input_string = input
+    @output_array = []
   end
 
   def plateu_coordinates
     line_splitter[0]
   end
 
-  def save_instructions
+  def process_instructions
     i = 1
     while i <= no_of_lines
-      @output << {
+      @output_array << {
         x: line_splitter[i].split(' ')[0].to_i,
         y: line_splitter[i].split(' ')[1].to_i,
         direction: line_splitter[i].split(' ')[2],
@@ -25,10 +25,10 @@ class Input_parser
   private
 
   def line_splitter
-    @input.split(/\n/)
+    @input_string.split(/\n/)
   end
 
   def no_of_lines
-    @input.count("\n")
+    @input_string.count("\n")
   end
 end
