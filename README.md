@@ -20,6 +20,10 @@ So I know where my rover ended up
 I want to be able to receive the info on the final rover location
 ```
 [Original task](TASK.md)
+
+## Design
+![Alt text](model.jpg?raw=true "Project Model")
+
 ## Tech/framework used
 **Built with**
 - Ruby 2.6.0
@@ -46,7 +50,6 @@ gem update --system
 gem install bundler
 bundle install
 ```
-
 
 ## Tests
 This project uses RSpec testing library. It also uses `simplecov` for code coverage. The total code coverage is shown in the console and the details for each file can be found in the `/coverage/index.html` file.
